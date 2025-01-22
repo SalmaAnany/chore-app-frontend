@@ -1,48 +1,45 @@
+import * as React from "react";
 import {
     isRouteErrorResponse,
     Links,
     Meta,
-    Outlet,
     Scripts,
     ScrollRestoration,
 } from "react-router";
-
-import type {Route} from "./+types/root";
+import type { Route } from "./+types/root";
+import theme from '~/theme'
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Sidebar from "~/Sidebar";
-import React from "react";
-import {Box, Container} from "@mui/material";
 
-export default function App() {
-    return <html lang="en">
-    <head>
-        <meta charSet="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <Meta/>
-        <Links/>
-    </head>
-    <body>
-    <main className="pt-16 p-4 container mx-auto">
-        <Container maxWidth="sm">
-            <Box sx={{mb: 4}}>
-                <Sidebar/>
-            </Box>
-            <Box sx={{mb: 4}}>
-                <Outlet/>
-            </Box>
-        </Container>
-    </main>
-    <Outlet/>
-    <ScrollRestoration/>
-    <Scripts/>
-    </body>
-    </html>;
+import {CssBaseline, ThemeProvider,} from "@mui/material";
+
+import App from "~/App";
+
+export default function Root() {
+    return (
+        <html lang="en">
+        <head>
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
+            <Meta />
+            <Links />
+            <title> You can do it!</title>
+            <CssBaseline/>
+        </head>
+        <body>
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
+            <ScrollRestoration />
+            <Scripts />
+        </body>
+        </html>
+    );
 }
 
-export function ErrorBoundary({error}: Route.ErrorBoundaryProps) {
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     let message = "Oops!";
     let details = "An unexpected error occurred.";
     let stack: string | undefined;
@@ -59,11 +56,11 @@ export function ErrorBoundary({error}: Route.ErrorBoundaryProps) {
     }
 
     return (
-        <main className="pt-16 p-4 container mx-auto">
+        <main style={{ padding: "1rem" }}>
             <h1>{message}</h1>
             <p>{details}</p>
             {stack && (
-                <pre className="w-full p-4 overflow-x-auto">
+                <pre style={{ whiteSpace: "pre-wrap" }}>
           <code>{stack}</code>
         </pre>
             )}

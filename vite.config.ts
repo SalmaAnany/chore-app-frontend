@@ -10,5 +10,8 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
+  ssr:{
+    noExternal: ["@mui/*"],
+  },
   plugins: [reactRouter(), tsconfigPaths()],
 });
