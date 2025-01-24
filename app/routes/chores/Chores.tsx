@@ -22,6 +22,9 @@ export default function Chores({ loaderData }: Route.ComponentProps) {
       {/*Left box Chores List*/}
       <Grid size={6}>
         <Box sx={{ p: 3, bgcolor: "#cfe8fc", borderRadius: 1, height: "100%" }}>
+            <Box component="span" style={{ fontSize: "2em" }}>
+                Chore Details
+            </Box>
             {loaderData?.map((chore) => (
             <ChoreViewComponent key={chore.title} chore={chore} />
           ))}

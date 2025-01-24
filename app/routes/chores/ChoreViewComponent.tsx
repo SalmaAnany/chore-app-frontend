@@ -21,9 +21,6 @@ import ChoreResponse from "~/data/ChoreResponse";
 export default function ChoreViewComponent(props: { chore: ChoreResponse }) {
   return (
     <Box sx={{ mb: 1 }}>
-      <Box component="span" style={{ fontSize: "2em" }}>
-        Chore Details
-      </Box>
 
       <Container maxWidth="sm">
         <Accordion>
