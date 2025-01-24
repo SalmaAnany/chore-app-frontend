@@ -1,10 +1,11 @@
 export default interface ChoreResponse {
-  id: string;
+  choreId: number;
   title: string;
   description: string;
   recurrence: string;
   category: string;
-  duration: string;
+  duration: number;
   difficulty: number;
   userId: number;
+  message: string | null;
 }

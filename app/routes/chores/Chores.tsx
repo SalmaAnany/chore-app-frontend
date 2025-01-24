@@ -1,11 +1,13 @@
 import React from "react";
-import { Grid2 as Grid } from "@mui/material";
-import mockUserData from "~/data/mockUserData";
+import {Box, Grid2 as Grid} from "@mui/material";
 import type { Route } from "./+types/Chores";
 import ChoreViewComponent from "~/routes/chores/ChoreViewComponent";
+import ChoreCreateComponent from "~/routes/chores/ChoreCreateComponent";
+import {getChores} from "~/api/chores";
 
 async function fetchChores(userId: string) {
-  return mockUserData.choreResponses.filter(
+    const choresData = await getChores();
+  return choresData.filter(
     (chore) => `${chore.userId}` === userId,
   );
 }
@@ -18,12 +20,23 @@ export async function loader({ params }: Route.LoaderArgs) {
 export default function Chores({ loaderData }: Route.ComponentProps) {
   // this file for url
   return (
+
     <Grid container spacing={2}>
-      <Grid size={4}>
-        {loaderData?.map((chore) => (
-          <ChoreViewComponent key={chore.title} chore={chore} />
-        ))}
+        {/*Left box Chores List*/}
+        <Grid size={6}>
+          <Box sx={{ p: 3, bgcolor: '#cfe8fc', borderRadius: 1,height: '100%' }}>
+              {loaderData?.map((chore) => (
+                  <ChoreViewComponent key={chore.title} chore={chore} />
+              ))}
+          </Box>
       </Grid>
+        {/*Right box Chores List*/}
+        <Grid size={6}>
+            <Box sx={{ p: 3, bgcolor: '#cfe8fc', borderRadius: 1,height: '100%' }}>
+                    <ChoreCreateComponent/>
+
+            </Box>
+        </Grid>
     </Grid>
   );
 }

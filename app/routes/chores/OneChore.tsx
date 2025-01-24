@@ -1,14 +1,14 @@
 import React from "react";
-import type { Route } from "./+types/OneChore";
-import mockUserData from "~/data/mockUserData";
+import type {Route} from "./+types/OneChore";
 import ChoreViewComponent from "~/routes/chores/ChoreViewComponent";
+import {getChore} from "~/api/chores";
 
-async function fetchChore(choreId: string) {
-  return mockUserData.choreResponses.find((chore) => `${chore.id}` === choreId);
+async function fetchChore(choreId: number) {
+  return await getChore(choreId);
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
-  return await fetchChore(params.choreId);
+  return await fetchChore(Number(params.choreId));
 }
 
 // #diplaying a single chore
