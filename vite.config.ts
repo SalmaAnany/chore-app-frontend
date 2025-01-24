@@ -3,12 +3,9 @@ import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-
+import netlifyPlugin from "@netlify/vite-plugin-react-router";
 
 export default defineConfig({
-  build: {
-    outDir: 'dist',
-  },
   css: {
     postcss: {
       plugins: [tailwindcss, autoprefixer],
@@ -17,5 +14,5 @@ export default defineConfig({
   ssr:{
     noExternal: ["@mui/*"],
   },
-  plugins: [reactRouter(), tsconfigPaths()],
+  plugins: [reactRouter(), tsconfigPaths(), netlifyPlugin()]
 });
