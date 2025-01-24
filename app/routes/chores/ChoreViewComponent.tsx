@@ -21,7 +21,6 @@ import ChoreResponse from "~/data/ChoreResponse";
 export default function ChoreViewComponent(props: { chore: ChoreResponse }) {
   return (
     <Box sx={{ mb: 1 }}>
-
       <Container maxWidth="sm">
         <Accordion>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
