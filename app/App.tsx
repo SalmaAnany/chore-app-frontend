@@ -41,7 +41,7 @@ export default function App() {
             </Drawer>
 
       {/* MAIN CONTENT */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3, paddingLeft: 35 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />  {/* so our content is below the app bar */}
         <Outlet />   {/* renders child routes, such as the chores list */}
             </Box>
