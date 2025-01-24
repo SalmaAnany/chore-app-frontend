@@ -1,7 +1,7 @@
 import React from "react";
-import type {Route} from "./+types/OneChore";
+import type { Route } from "./+types/OneChore";
 import ChoreViewComponent from "~/routes/chores/ChoreViewComponent";
-import {getChore} from "~/api/chores";
+import { getChore } from "~/api/chores";
 
 async function fetchChore(choreId: number) {
   return await getChore(choreId);
