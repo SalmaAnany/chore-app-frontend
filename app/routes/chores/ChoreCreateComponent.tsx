@@ -105,15 +105,7 @@ export default function ChoreCreateComponent() {
             <TextField {...params} label="Set Difficulty Level" />
           )}
         />
-        <Button
-          fullWidth
-          loading
-          loadingPosition="end"
-          endIcon={<SaveIcon />}
-          variant="outlined"
-        >
-          Full width
-        </Button>
+
         <Box
           sx={{
             display: "flex",
