@@ -1,10 +1,10 @@
 import ChoreResponse from "~/data/ChoreResponse";
 
-const VITE_APP_BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
+const VITE_REMOTE_APP_BACKEND_URL = import.meta.env.VITE_REMOTE_APP_BACKEND_URL;
 
 export async function getChores(): Promise<ChoreResponse[]> {
   try {
-    const response = await fetch(`${VITE_APP_BACKEND_URL}/chores`);
+    const response = await fetch(`${VITE_REMOTE_APP_BACKEND_URL}/chores`);
     if (!response.ok) {
       throw new Error(`Error fetching chores: ${response.statusText}`);
     }
@@ -15,7 +15,7 @@ export async function getChores(): Promise<ChoreResponse[]> {
   }
 }
 export async function getChore(choreId: number): Promise<ChoreResponse> {
-  const response = await fetch(`${VITE_APP_BACKEND_URL}/chores/${choreId}`);
+  const response = await fetch(`${VITE_REMOTE_APP_BACKEND_URL}/chores/${choreId}`);
   if (!response.ok) {
     throw new Error(`Error fetching chores: ${response.statusText}`);
   }
