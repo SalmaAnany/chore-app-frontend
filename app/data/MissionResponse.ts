@@ -1,7 +1,5 @@
 export default interface MissionResponse {
   missionId: number;
-  title: string;
-  description: string;
   recurrence: string;
   category: string;
   dateStarted: string;

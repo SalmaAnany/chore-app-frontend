@@ -1,6 +1,7 @@
 import React from "react";
 import {Box, List, ListItem, ListItemText, Typography} from "@mui/material";
 import UserData from "~/data/UserData";
+import ChoreViewComponent from "~/routes/chores/ChoreViewComponent";
 
 const UserProfileDetails: React.FC<{ userData: UserData }> = ({userData}) => (
     <Box sx={{maxWidth: 600, margin: "auto", padding: 3}}>
@@ -23,18 +24,27 @@ const UserProfileDetails: React.FC<{ userData: UserData }> = ({userData}) => (
             <strong>Email:</strong> {userData.email}
         </Typography>
         <Typography variant="h5" gutterBottom sx={{marginTop: 3}}>
-            Chore Responses
+            Chores
         </Typography>
         <List>
-            {userData.choreResponses?.map((chore, index) => (
+            {userData.chores?.map((chore, index) => (
+                <ChoreViewComponent chore={chore} key={index} />
+            ))}
+        </List>
+        <Typography variant="h5" gutterBottom sx={{marginTop: 3}}>
+            Missions
+        </Typography>
+        <List>
+            {userData.missions?.map((chore, index) => (
                 <ListItem key={index}>
                     <ListItemText
-                        primary={chore.title} // Assuming ChoreResponse has a `title` field
-                        secondary={chore.description} // Assuming ChoreResponse has a `description` field
+                        primary={chore.missionId}
+                        secondary={chore.dateStarted}
                     />
                 </ListItem>
             ))}
         </List>
+
     </Box>
 );
 

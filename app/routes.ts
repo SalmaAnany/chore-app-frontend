@@ -13,5 +13,5 @@ export default [
     route("chores/:choreId", "./routes/chores/OneChore.tsx", {id:"Chore"}),
 
     // Start Mission
-    route("missions/:userId","./routes/missions/MissionStart.tsx", {id:"Missions", index: true}),
+    route("missions","./routes/missions/MissionStart.tsx", {id:"Missions", index: true}),
 ] satisfies RouteConfig;

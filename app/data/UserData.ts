@@ -1,4 +1,5 @@
 import ChoreResponse from "~/data/ChoreResponse";
+import MissionResponse from "~/data/MissionResponse";
 
 export default interface UserData {
   id: number;
@@ -6,5 +7,6 @@ export default interface UserData {
   lastName: string;
   username: string;
   email: string;
-  choreResponses: ChoreResponse[];
+  chores: ChoreResponse[];
+  missions: MissionResponse[];
 }

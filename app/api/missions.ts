@@ -21,3 +21,4 @@ export async function getMission(missionId: number): Promise<MissionResponse> {
   }
   return await response.json();
 }
+
