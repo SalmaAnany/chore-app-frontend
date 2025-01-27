@@ -25,16 +25,17 @@ export default function Root() {
             <meta name="viewport" content="initial-scale=1, width=device-width" />
             <Meta />
             <Links />
-            <title> You can do it!</title>
             <CssBaseline/>
+            <title> You can do it!</title>
         </head>
-        <body>
         <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-            <ScrollRestoration />
+        <body>
+        <App />
+         <ScrollRestoration />
             <Scripts />
         </body>
+        </ThemeProvider>
+
         </html>
     );
 }

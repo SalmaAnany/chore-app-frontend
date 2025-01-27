@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import {
     AppBar,
@@ -40,10 +41,10 @@ export default function App() {
                 <Sidebar />
             </Drawer>
 
-      {/* MAIN CONTENT */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      {/* MAIN CONTENT, removing pl:30 when we deploy that's  a bug I could not solve*/}
+      <Box component="main" sx={{ flexGrow: 1, p: 3, pl: 30 }}>
         <Toolbar />  {/* so our content is below the app bar */}
-        <Outlet />   {/* renders child routes, such as the chores list */}
+          <Outlet />   {/* renders child routes, such as the chores list */}
             </Box>
         </Box>
     );

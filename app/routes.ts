@@ -6,10 +6,12 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-    index("./routes/Home.tsx", {id:"Home"}),
-    route("user_profile/:userId","./routes/user_profile/UserProfile.tsx", {id:"User Profile", index: true}),
+    index("./routes/user_profile/UserProfile.tsx", {id:"Home/UserProfile"}),
+    route("login","./routes/login/Login.tsx", {id:"Login"}),
     // chores all route
-    route("chores/:userId", "./routes/chores/Chores.tsx", {id:"Chores", index: true}),
-    route("chores/:userId/:choreId", "./routes/chores/OneChore.tsx", {id:"Chore"}),
+    route("chores", "./routes/chores/Chores.tsx", {id:"Chores", index: true}),
+    route("chores/:choreId", "./routes/chores/OneChore.tsx", {id:"Chore"}),
 
+    // Start Mission
+    route("missions/:userId","./routes/missions/MissionStart.tsx", {id:"Missions", index: true}),
 ] satisfies RouteConfig;
